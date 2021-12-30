@@ -24,8 +24,6 @@ class SoundBoard():
     def __init__(self, dpath):
         self.dpath = dpath
         self.current = ''
-        # self.keybytes = {}
-        #self.thread3 = thread3
 
 
     # Creates folder in Appdata/Roaming, if one does not already exist, to store soundbytes.
@@ -184,8 +182,6 @@ class SoundBoard():
         self.menu()
 
     def check_voice(self):
-        #print(self.keybytes)
-        #print(self.keywords)
         sh = SpeechHandler
         l = sh.speech_to_list(self)
         #print(l)
@@ -220,16 +216,6 @@ class SoundBoard():
             thread3.start()
             sh = menu
             sh.print_menu(self)
-
-    # def push_talk(self, key):
-    #     listener = keyboard.Listener(on_press=self.on_press)
-    #     listener.start()
-    #     if key == '`':
-    #         thread3 = threading.Thread(target=sBoard.check_voice(), args=())
-    #         thread3.start()
-
-
-    # Play sound sBoard.keybytes[current]
 
     def on_release(self, key):
         try:
@@ -272,10 +258,8 @@ class SoundBoard():
             self.print_menu()
 
 
-# TODO Need to somehow constantly listen to the keyboard so that no matter what the user is doing, they can use their keybytes.
 
 # Create soundboard instance and ensure that if the folder doesnt already exist it is created
-#thread3 = threading.Thread(target=sBoard.check_voice(), args=())
 sBoard = SoundBoard('%s\\KeyBytes\\' % os.environ['APPDATA'])
 
 
@@ -288,18 +272,4 @@ thread2 = threading.Thread(target=sBoard.menu(), args=())
 
 thread1.start()
 thread2.start()
-#thread3.start()
 
-
-
-
-# listener.start()  # start to listen on a separate thread
-# listener.join()  # remove if main thread is polling self.keys
-
-# with keyboard.Listener(on_press=sBoard.on_press, on_release=sBoard.on_release) as listener:
-#     listener.join()
-#     print("n")
-
-# listener = keyboard.Listener(on_press=sBoard.on_press, on_release=sBoard.on_release)
-# listener.start()  # start to listen on a separate thread
-#sBoard.menu()
