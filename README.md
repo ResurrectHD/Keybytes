@@ -10,13 +10,6 @@
 ## Technologies
 This project was made in Python
 
-*
-*
-*
-*
-
 ## Design
 You can see our project design document [here]()!
-
-## How To Use
 
